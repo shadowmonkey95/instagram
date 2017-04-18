@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
   resources :images
-  devise_for :users
+  devise_for :users, :path_prefix => 'd'
+  match '/users',   to: 'users#index',   via: 'get'
+  match '/users/:id',     to: 'users#show',       via: 'get'
+  resources :users, :only =>[:show]
+  
   #get 'home/front'
   root to: 'home#front'
   
