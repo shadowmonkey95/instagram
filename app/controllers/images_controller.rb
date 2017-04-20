@@ -8,6 +8,7 @@ class ImagesController < ApplicationController
 
   # GET /images/1
   def show
+    @image_comment = ImageComment.new
   end
 
   # GET /images/new
